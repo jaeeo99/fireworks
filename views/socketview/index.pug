@@ -1,0 +1,11 @@
+extends layout
+block content
+    ul.pages
+        li.chat.page
+            #username_field
+            iframe#view(style='width:100%;height:90%;frameBorder:0;')
+            input.inputMessage(placeholder='Type here...')
+        li.login.page
+            .form
+                h3.title input device name
+                input.usernameInput(type='text', maxlength='14')

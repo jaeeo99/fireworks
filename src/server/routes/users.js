@@ -1,9 +1,9 @@
 import express from 'express';
 let router = express.Router();
+let user_controller = require('../controllers/users');
 
-/* GET users listing. */
-router.get('/', (req, res, next) => {
-  res.send('respond with a resource');
-});
+router.route('/')
+    .get(user_controller.apiGET)
+    .post(user_controller.apiPOST);
 
 module.exports = router;

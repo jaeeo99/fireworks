@@ -7,6 +7,7 @@
 import app from './app';
 import debug from 'debug';
 import http from 'http';
+import sockets from './controllers/socketio'
 
 debug('fireworks:server');
 /**
@@ -30,6 +31,7 @@ server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
 
+sockets.init(server);
 /**
  * Normalize a port into a number, string, or false.
  */
