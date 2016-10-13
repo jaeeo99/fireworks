@@ -1,0 +1,49 @@
+{
+  "name": "fireworks",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "lint": "eslint app.js",
+    "start": "node ./bin/www",
+    "test": "mocha --compilers js:babel-register",
+    "watch": "webpack --watch",
+    "build": "webpack"
+  },
+  "author": "Jinchul Park <jaeeo99@gmail.com> (http://jaeeo.kr)",
+  "license": "UNLICENSED",
+  "description": "Works like fire",
+  "dependencies": {
+    "body-parser": "~1.15.1",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.2.0",
+    "eslint": "^3.7.1",
+    "eslint-loader": "^1.5.0",
+    "express": "~4.13.4",
+    "fetch": "^1.1.0",
+    "morgan": "~1.7.0",
+    "node-sass-middleware": "0.8.0",
+    "pug": "^2.0.0-beta6",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2",
+    "react-redux": "^4.4.5",
+    "redux": "^3.6.0",
+    "serve-favicon": "~2.3.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.16.0",
+    "babel-core": "^6.17.0",
+    "babel-eslint": "^7.0.0",
+    "babel-loader": "^6.2.5",
+    "babel-preset-es2015": "^6.16.0",
+    "babel-preset-react": "^6.16.0",
+    "chai": "^3.5.0",
+    "json-loader": "^0.5.4",
+    "mocha": "^3.1.2",
+    "react-hot-loader": "^3.0.0-beta.5",
+    "redux-devtools": "^3.3.1",
+    "sinon": "^1.17.6",
+    "webpack": "^1.13.2",
+    "webpack-dev-server": "^1.16.2"
+  },
+  "sourceMaps": "both"
+}
