@@ -27,6 +27,7 @@
     "react-dom": "^15.3.2",
     "react-redux": "^4.4.5",
     "redux": "^3.6.0",
+    "sequelize": "^3.24.3",
     "serve-favicon": "~2.3.0",
     "socket.io": "^1.5.0"
   },

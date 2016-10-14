@@ -7,7 +7,22 @@
 import app from './app';
 import debug from 'debug';
 import http from 'http';
-import sockets from './controllers/socketio'
+import sockets from './controllers/socketio';
+import models from './models';
+
+
+let sequelize = new Sequelize('aspage', 'root', '', {
+  host: 'localhost',
+  dialect: 'mysql',
+
+  pool: {
+    max: 5,
+    min: 0,
+    idle: 10000
+  },
+});
+
+
 
 debug('fireworks:server');
 /**
@@ -30,6 +45,7 @@ let server = http.createServer(app);
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
+
 
 sockets.init(server);
 /**
