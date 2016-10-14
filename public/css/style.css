@@ -1,8 +1,46 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+html, body, .global-wrap, main{
+  width : 100%;
+  height : 100%;
+}
 
-a {
-  color: #00B7FF; }
+.slot{
+  float : left;
+  width : 25%;
+  height : 33.33%;
+  background-color : #424242;
+  padding : 20px;
+  border : 1px solid #383838;
+  text-align : center;
+}
 
-/*# sourceMappingURL=style.css.map */
+.slot-header{
+  border : 1px solid #fff;
+}
+
+.slot-footer{
+  font-family: 'Jeju Gothic', serif;
+  font-size : 22px;
+  padding : 20px;
+  color : #fff;
+}
+
+.level1{
+  color : #fc3;
+}
+
+.level2{
+  color : #f72;
+}
+
+.level3{
+  color : #f30;
+}
+
+.fire{
+  background-size: 3000% 100% !important;
+  animation: play 1s steps(30) infinite;
+}
+
+@keyframes play {
+  100% { background-position: -3000%; }
+}

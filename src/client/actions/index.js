@@ -1,10 +1,16 @@
 /**
  * Created by Jaeeo on 2016. 10. 13..
  */
-export const INCREMENT = 'INCREMENT';
-
-export function increment() {
+export const increment = (id) => {
     return {
-        type: INCREMENT
+        type: 'INCREMENT',
+        id
     };
+}
+
+export const setFilter = (filter) => {
+    return {
+        type: 'SET_FILTER',
+        filter
+    }
 }

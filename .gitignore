@@ -14,10 +14,6 @@ build
 
 node_modules
 npm-debug.log
-.idea/fireworks.iml
-.idea/jsLibraryMappings.xml
-.idea/misc.xml
-.idea/modules.xml
-.idea/vcs.xml
-.idea/watcherTasks.xml
-.idea/workspace.xml
+.idea
+
+public/js/bundle.js
