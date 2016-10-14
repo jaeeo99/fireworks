@@ -86,9 +86,9 @@
 	        return;
 	    }
 
-	    __REACT_HOT_LOADER__.register(store, 'store', '/Users/Jaeeo/WebstormProjects/fireworks/src/client/index.js');
+	    __REACT_HOT_LOADER__.register(store, 'store', '/Users/kimkyoungdong/WebstormProjects/fireworks/src/client/index.js');
 
-	    __REACT_HOT_LOADER__.register(appElement, 'appElement', '/Users/Jaeeo/WebstormProjects/fireworks/src/client/index.js');
+	    __REACT_HOT_LOADER__.register(appElement, 'appElement', '/Users/kimkyoungdong/WebstormProjects/fireworks/src/client/index.js');
 	}();
 
 	;
@@ -21783,17 +21783,17 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var getPrototype = __webpack_require__(175),
-	    isHostObject = __webpack_require__(176),
 	    isObjectLike = __webpack_require__(177);
 
 	/** `Object#toString` result references. */
 	var objectTag = '[object Object]';
 
 	/** Used for built-in method references. */
-	var objectProto = Object.prototype;
+	var funcProto = Function.prototype,
+	    objectProto = Object.prototype;
 
 	/** Used to resolve the decompiled source of functions. */
-	var funcToString = Function.prototype.toString;
+	var funcToString = funcProto.toString;
 
 	/** Used to check objects for own properties. */
 	var hasOwnProperty = objectProto.hasOwnProperty;
@@ -21803,7 +21803,7 @@
 
 	/**
 	 * Used to resolve the
-	 * [`toStringTag`](http://ecma-international.org/ecma-262/6.0/#sec-object.prototype.tostring)
+	 * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
 	 * of values.
 	 */
 	var objectToString = objectProto.toString;
@@ -21817,8 +21817,7 @@
 	 * @since 0.8.0
 	 * @category Lang
 	 * @param {*} value The value to check.
-	 * @returns {boolean} Returns `true` if `value` is a plain object,
-	 *  else `false`.
+	 * @returns {boolean} Returns `true` if `value` is a plain object, else `false`.
 	 * @example
 	 *
 	 * function Foo() {
@@ -21838,8 +21837,7 @@
 	 * // => true
 	 */
 	function isPlainObject(value) {
-	  if (!isObjectLike(value) ||
-	      objectToString.call(value) != objectTag || isHostObject(value)) {
+	  if (!isObjectLike(value) || objectToString.call(value) != objectTag) {
 	    return false;
 	  }
 	  var proto = getPrototype(value);
@@ -21856,21 +21854,12 @@
 
 /***/ },
 /* 175 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
-	/* Built-in method references for those with the same name as other `lodash` methods. */
-	var nativeGetPrototype = Object.getPrototypeOf;
+	var overArg = __webpack_require__(176);
 
-	/**
-	 * Gets the `[[Prototype]]` of `value`.
-	 *
-	 * @private
-	 * @param {*} value The value to query.
-	 * @returns {null|Object} Returns the `[[Prototype]]`.
-	 */
-	function getPrototype(value) {
-	  return nativeGetPrototype(Object(value));
-	}
+	/** Built-in value references. */
+	var getPrototype = overArg(Object.getPrototypeOf, Object);
 
 	module.exports = getPrototype;
 
@@ -21880,25 +21869,20 @@
 /***/ function(module, exports) {
 
 	/**
-	 * Checks if `value` is a host object in IE < 9.
+	 * Creates a unary function that invokes `func` with its argument transformed.
 	 *
 	 * @private
-	 * @param {*} value The value to check.
-	 * @returns {boolean} Returns `true` if `value` is a host object, else `false`.
+	 * @param {Function} func The function to wrap.
+	 * @param {Function} transform The argument transform.
+	 * @returns {Function} Returns the new function.
 	 */
-	function isHostObject(value) {
-	  // Many host objects are `Object` objects that can coerce to strings
-	  // despite having improperly defined `toString` methods.
-	  var result = false;
-	  if (value != null && typeof value.toString != 'function') {
-	    try {
-	      result = !!(value + '');
-	    } catch (e) {}
-	  }
-	  return result;
+	function overArg(func, transform) {
+	  return function(arg) {
+	    return func(transform(arg));
+	  };
 	}
 
-	module.exports = isHostObject;
+	module.exports = overArg;
 
 
 /***/ },
@@ -21930,7 +21914,7 @@
 	 * // => false
 	 */
 	function isObjectLike(value) {
-	  return !!value && typeof value == 'object';
+	  return value != null && typeof value == 'object';
 	}
 
 	module.exports = isObjectLike;
@@ -21947,7 +21931,7 @@
 /* 179 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(module, global) {'use strict';
+	/* WEBPACK VAR INJECTION */(function(global, module) {'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -21959,7 +21943,7 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var root = module; /* global window */
+	var root; /* global window */
 
 
 	if (typeof self !== 'undefined') {
@@ -21968,13 +21952,15 @@
 	  root = window;
 	} else if (typeof global !== 'undefined') {
 	  root = global;
+	} else if (true) {
+	  root = module;
 	} else {
 	  root = Function('return this')();
 	}
 
 	var result = (0, _ponyfill2['default'])(root);
 	exports['default'] = result;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(180)(module), (function() { return this; }())))
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(180)(module)))
 
 /***/ },
 /* 180 */
@@ -23145,9 +23131,9 @@
 	        return;
 	    }
 
-	    __REACT_HOT_LOADER__.register(App, 'App', '/Users/Jaeeo/WebstormProjects/fireworks/src/client/components/app.js');
+	    __REACT_HOT_LOADER__.register(App, 'App', '/Users/kimkyoungdong/WebstormProjects/fireworks/src/client/components/app.js');
 
-	    __REACT_HOT_LOADER__.register(_default, 'default', '/Users/Jaeeo/WebstormProjects/fireworks/src/client/components/app.js');
+	    __REACT_HOT_LOADER__.register(_default, 'default', '/Users/kimkyoungdong/WebstormProjects/fireworks/src/client/components/app.js');
 	}();
 
 	;
@@ -23222,11 +23208,11 @@
 	        return;
 	    }
 
-	    __REACT_HOT_LOADER__.register(Counter, 'Counter', '/Users/Jaeeo/WebstormProjects/fireworks/src/client/components/counter.js');
+	    __REACT_HOT_LOADER__.register(Counter, 'Counter', '/Users/kimkyoungdong/WebstormProjects/fireworks/src/client/components/counter.js');
 
-	    __REACT_HOT_LOADER__.register(mapStateToProps, 'mapStateToProps', '/Users/Jaeeo/WebstormProjects/fireworks/src/client/components/counter.js');
+	    __REACT_HOT_LOADER__.register(mapStateToProps, 'mapStateToProps', '/Users/kimkyoungdong/WebstormProjects/fireworks/src/client/components/counter.js');
 
-	    __REACT_HOT_LOADER__.register(_default, 'default', '/Users/Jaeeo/WebstormProjects/fireworks/src/client/components/counter.js');
+	    __REACT_HOT_LOADER__.register(_default, 'default', '/Users/kimkyoungdong/WebstormProjects/fireworks/src/client/components/counter.js');
 	}();
 
 	;
@@ -23318,11 +23304,11 @@
 	        return;
 	    }
 
-	    __REACT_HOT_LOADER__.register(Buttons, 'Buttons', '/Users/Jaeeo/WebstormProjects/fireworks/src/client/components/buttons.js');
+	    __REACT_HOT_LOADER__.register(Buttons, 'Buttons', '/Users/kimkyoungdong/WebstormProjects/fireworks/src/client/components/buttons.js');
 
-	    __REACT_HOT_LOADER__.register(mapDispatchToProps, 'mapDispatchToProps', '/Users/Jaeeo/WebstormProjects/fireworks/src/client/components/buttons.js');
+	    __REACT_HOT_LOADER__.register(mapDispatchToProps, 'mapDispatchToProps', '/Users/kimkyoungdong/WebstormProjects/fireworks/src/client/components/buttons.js');
 
-	    __REACT_HOT_LOADER__.register(_default, 'default', '/Users/Jaeeo/WebstormProjects/fireworks/src/client/components/buttons.js');
+	    __REACT_HOT_LOADER__.register(_default, 'default', '/Users/kimkyoungdong/WebstormProjects/fireworks/src/client/components/buttons.js');
 	}();
 
 	;
@@ -23354,9 +23340,9 @@
 	        return;
 	    }
 
-	    __REACT_HOT_LOADER__.register(INCREMENT, 'INCREMENT', '/Users/Jaeeo/WebstormProjects/fireworks/src/client/actions/index.js');
+	    __REACT_HOT_LOADER__.register(INCREMENT, 'INCREMENT', '/Users/kimkyoungdong/WebstormProjects/fireworks/src/client/actions/index.js');
 
-	    __REACT_HOT_LOADER__.register(increment, 'increment', '/Users/Jaeeo/WebstormProjects/fireworks/src/client/actions/index.js');
+	    __REACT_HOT_LOADER__.register(increment, 'increment', '/Users/kimkyoungdong/WebstormProjects/fireworks/src/client/actions/index.js');
 	}();
 
 	;
@@ -23455,11 +23441,11 @@
 	        return;
 	    }
 
-	    __REACT_HOT_LOADER__.register(Option, 'Option', '/Users/Jaeeo/WebstormProjects/fireworks/src/client/components/option.js');
+	    __REACT_HOT_LOADER__.register(Option, 'Option', '/Users/kimkyoungdong/WebstormProjects/fireworks/src/client/components/option.js');
 
-	    __REACT_HOT_LOADER__.register(mapDispatchToProps, 'mapDispatchToProps', '/Users/Jaeeo/WebstormProjects/fireworks/src/client/components/option.js');
+	    __REACT_HOT_LOADER__.register(mapDispatchToProps, 'mapDispatchToProps', '/Users/kimkyoungdong/WebstormProjects/fireworks/src/client/components/option.js');
 
-	    __REACT_HOT_LOADER__.register(_default, 'default', '/Users/Jaeeo/WebstormProjects/fireworks/src/client/components/option.js');
+	    __REACT_HOT_LOADER__.register(_default, 'default', '/Users/kimkyoungdong/WebstormProjects/fireworks/src/client/components/option.js');
 	}();
 
 	;
@@ -23528,15 +23514,15 @@
 	        return;
 	    }
 
-	    __REACT_HOT_LOADER__.register(counterInitialState, 'counterInitialState', '/Users/Jaeeo/WebstormProjects/fireworks/src/client/reducers/index.js');
+	    __REACT_HOT_LOADER__.register(counterInitialState, 'counterInitialState', '/Users/kimkyoungdong/WebstormProjects/fireworks/src/client/reducers/index.js');
 
-	    __REACT_HOT_LOADER__.register(counter, 'counter', '/Users/Jaeeo/WebstormProjects/fireworks/src/client/reducers/index.js');
+	    __REACT_HOT_LOADER__.register(counter, 'counter', '/Users/kimkyoungdong/WebstormProjects/fireworks/src/client/reducers/index.js');
 
-	    __REACT_HOT_LOADER__.register(extra, 'extra', '/Users/Jaeeo/WebstormProjects/fireworks/src/client/reducers/index.js');
+	    __REACT_HOT_LOADER__.register(extra, 'extra', '/Users/kimkyoungdong/WebstormProjects/fireworks/src/client/reducers/index.js');
 
-	    __REACT_HOT_LOADER__.register(counterApp, 'counterApp', '/Users/Jaeeo/WebstormProjects/fireworks/src/client/reducers/index.js');
+	    __REACT_HOT_LOADER__.register(counterApp, 'counterApp', '/Users/kimkyoungdong/WebstormProjects/fireworks/src/client/reducers/index.js');
 
-	    __REACT_HOT_LOADER__.register(_default, 'default', '/Users/Jaeeo/WebstormProjects/fireworks/src/client/reducers/index.js');
+	    __REACT_HOT_LOADER__.register(_default, 'default', '/Users/kimkyoungdong/WebstormProjects/fireworks/src/client/reducers/index.js');
 	}();
 
 	;
