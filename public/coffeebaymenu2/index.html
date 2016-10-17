@@ -1,0 +1,188 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <title>menuboard test</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <link href='http://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'>
+    <link href="https://cdn.rawgit.com/singihae/Webfonts/master/style.css" rel="stylesheet" type="text/css" />
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/three.js/r73/three.min.js'></script>
+    <script src="effect.js"></script>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/gsap/1.14.2/TweenMax.min.js'></script>
+     <script src="effect.js"></script>
+
+</head>
+<body>
+    <div>
+        <img src="opticalFlare.png" class="opticalFlare">
+    </div>
+  <div class="grid_menu">
+    <div class="grid_01">
+      <div class="grid_01_relative">
+        <div class="menu_list"></div>
+        <div class="menu_list"></div>
+        <div class="menu_list"></div>
+        <div class="menu_list"></div>
+        <div class="menu_list"></div>
+        <div class="menu_list"></div>
+        <div class="menu_list"></div>
+        <div class="menu_list"></div>
+        <div class="menu_list"></div>
+        <div class="menu_list"></div>
+        <div class="menu_list"></div>
+        <div class="menu_list"></div>
+      </div>
+    </div>
+    <div class="grid_02">
+      <div class="grid_02_relative">
+        <div class="menu_list menu_list_best">
+            <img src="darkchocola.png" class="darkchocola">
+            <div class="menu_name_first_group">
+                <span class="menu_name_first">다크쇼콜라</span>
+                <span class="menu_name_first">프라노베</span>
+                <span class="menu_price_first">R 4,300 / L 5,500</span>
+            </div>
+        </div>
+        <!--<div class="menu_list">
+            <span>1</span>
+        </div>
+        <div class="menu_list">
+            <span>1</span>
+        </div>
+        <div class="menu_list">
+            <span>1</span>
+        </div>-->
+        <div class="menu_list menu_list_second">
+            <img src="greentea.png" class="greentea">
+            <div class="menu_name_second_group">
+                <span class="menu_name_second">그린티 & 유자티 에이드 </span>
+                <span class="menu_price_second">R 4,300 / L 5,500</span>
+            </div>
+        </div>
+        <!--<div class="menu_list">
+            <span>2</span>
+        </div>-->
+        <div class="menu_list">
+            <span class="menu_name">얼그레이 & 레몬 티 에이드</span>
+            <span class="menu_price">R 4,300 / L 5,500</span>
+        </div>
+        <div class="menu_list">
+            <span class="menu_name">아이스 아메리카노</span>
+            <span class="menu_price">R 4,300 / L 5,500</span>
+        </div>
+        <div class="menu_list">
+            <span class="menu_name">자바칩 프라노베</span>
+            <span class="menu_price">R 4,300 / L 5,500</span>
+        </div>
+        <div class="menu_list">
+            <span class="menu_name">스무벨라 딸기</span>
+            <span class="menu_price">R 4,300 / L 5,500</span>
+        </div>
+        <div class="menu_list">
+            <span class="menu_name burn fire">미니 허니브레드.카라</span>
+            <span class="menu_price">R 4,300 / L 5,500</span>
+        </div>
+        <div class="menu_list">
+            <span class="menu_name">컬러 베이글</span>
+            <span class="menu_price">R 4,300 / L 5,500</span>
+        </div>
+      </div>
+    </div>
+    <div class="grid_03">
+      <div class="grid_03_relative">
+        <div class="menu_list_nobg">
+            <span class="espressoCoffee">ESPRESSO COFFEE</span>
+        </div>
+        <div class="menu_list">
+            <span class="menu_name">에스프레소</span>
+            <span class="menu_price">R 4,300 / L 5,500</span>
+        </div>
+        <div class="menu_list">
+            <span class="menu_name">아메리카노</span>
+            <span class="menu_price">R 4,300 / L 5,500</span>
+        </div>
+        <div class="menu_list">
+            <span class="menu_name">아이스 아메리카노</span>
+            <span class="menu_price">R 4,300 / L 5,500</span>
+        </div>
+        <div class="menu_list">
+            <span class="menu_name">바닐라 라떼 Hot,Ice</span>
+            <span class="menu_price">R 4,300 / L 5,500</span>
+        </div>
+        <div class="menu_list">
+            <span class="menu_name">카페라떼</span>
+            <span class="menu_price">R 4,300 / L 5,500</span>
+        </div>
+        <div class="menu_list">
+            <span class="menu_name">카푸치노</span>
+            <span class="menu_price">R 4,300 / L 5,500</span>
+        </div>
+        <div class="menu_list">
+            <span class="menu_name">카라멜 라떼 HOT,ICE</span>
+            <span class="menu_price">R 4,300 / L 5,500</span>
+        </div>
+        <div class="menu_list">
+            <span class="menu_name">카페모카</span>
+            <span class="menu_price">R 4,300 / L 5,500</span>
+        </div>
+        <div class="menu_list">
+            <span class="menu_name">민트모카</span>
+            <span class="menu_price">R 4,300 / L 5,500</span>
+        </div>
+        <div class="menu_list">
+            <span class="menu_name">카라멜 마끼아또</span>
+            <span class="menu_price">R 4,300 / L 5,500</span>
+        </div>
+        <div class="menu_list">
+            <span class="menu_name">아이스 카페모카</span>
+            <span class="menu_price">R 4,300 / L 5,500</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="fallLeaves">
+    <img src="fallLeaves.png" width="100%">
+  </div>
+  <div class="coffeeDessert">
+    <img src="coffeeDessert.png" width="100%">
+  </div>
+  <div class="bgBlur"></div>
+
+ <video width="100%" class="bgVideo" autoplay loop webkit-playsinline>
+   <source src="coffeebay_tvcf.mp4" type="video/mp4">
+  </video>
+    <!--<canvas id="scene0"></canvas>-->
+	<!--<canvas id="scene1"></canvas>-->
+
+
+<!--<div class="container">
+
+
+    <img class="cloud-bg" src="http://cinemont.com/tutorials/howls/cloud-bg.png">
+    <img class="cloud-bg2" src="http://cinemont.com/tutorials/howls/cloud-bg.png">
+
+
+    </div>
+
+
+
+    <div class="clouds">
+        <img class="cloud-shadow1" src="http://cinemont.com/tutorials/howls/cloud_shadow-1.png">
+        <img class="cloud-shadow2" src="http://cinemont.com/tutorials/howls/cloud_shadow-1.png">
+        <img class="cloud-shadow3" src="http://cinemont.com/tutorials/howls/cloud_shadow-1.png">
+        <img class="cloud1" src="http://cinemont.com/tutorials/howls/cloud-1.png">
+        <img class="cloud2" src="http://cinemont.com/tutorials/howls/cloud-1.png">
+        <img class="cloud3" src="http://cinemont.com/tutorials/howls/cloud-2.png">
+        <img class="cloud4" src="http://cinemont.com/tutorials/howls/cloud-1.png">
+        <img class="cloud5" src="http://cinemont.com/tutorials/howls/cloud-2.png">
+    </div>-->
+
+
+
+
+
+  </body>
+</html>
+
+
