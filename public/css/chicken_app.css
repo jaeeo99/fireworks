@@ -41,7 +41,7 @@ html, body, #app, #app>div, main{
 }
 
 .fire{
-    background: url('/img/fire.png') left center;
+    background: url('/img/chicken/fire.png') left center;
 }
 
 @keyframes play {

@@ -3,19 +3,6 @@ html, body, #app, #app>div, main{
     height : 100%;
 }
 
-main.spring{
-    background-color: #FBBBBB;
-}
-main.summer{
-    background-color: #008DC8;
-}
-main.autumn{
-    background-color: #361800;
-}
-main.winter{
-    background-color: #C2FFF4;
-}
-
 .bg_div{
     position: absolute;
     width: 100%;
@@ -32,6 +19,25 @@ main.winter{
     width: 100%;
     height: 100%;
 }
+.bg_div .bg_wrapper .bg{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -500;
+}
+
+.bg.spring{
+    background-color: #FBBBBB;
+}
+.bg.summer{
+    background-color: #008DC8;
+}
+.bg.autumn{
+    background-color: #361800;
+}
+.bg.winter{
+    background-color: #C2FFF4;
+}
 
 .grid_menu{
     position: relative;
@@ -41,7 +47,6 @@ main.winter{
 }
 
 .grid_01{
-    display: none;
     width: 30%;
     height: 100%;
     z-index: 500;
@@ -108,14 +113,6 @@ div>span{
     text-shadow: 3px 3px 7px #000000;
 }
 
-.menu_name{
-    position: absolute;
-    left: 30px;
-    top: 50%;
-    transform: translate(0, -50%);
-    letter-spacing: -1px;
-}
-
 .menu_name_second_group{
     position: absolute;
     right:30px;
@@ -130,23 +127,69 @@ div>span{
     transform: translate(0, -50%);
 }
 
-.menu_name_second{
-    display: block;
-    font-size: 35px;
-    color: orange;
-    right: 0;
-}
-
-.menu_name_first{
-    display: block;
+.menu_list_wrapper.best .menu_name{
     font-size: 60px;
     /*font-family:'BM JUA','배달의민족 주아',sans-serif;*/
     font-family: 'BM HANNA','배달의민족 한나', sans-serif;
     color: #fff;
-    right: 0;
-    -webkit-text-stroke: 3px #AA7942;
+    left: auto;
+    right: 30px;
+    max-width : 55%;
+    top: 30%;
+    transform: translate(0, -30%);
+    -webkit-text-stroke: 1.5px #AA7942;
+    line-height: 130%;
+}
+.menu_list_wrapper.second .menu_name{
+    font-size: 35px;
+    color: orange;
+    left: auto;
+    right: 30px;
+    max-width : 70%;
+    top: 30%;
+    transform: translate(0, -30%);
 }
 
+.menu_list_wrapper.third .menu_name{
+    animation: fireburn .65s ease-in-out infinite alternate;
+}
+
+@keyframes fireburn
+{
+    0% {text-shadow: 0 0 10px #fefcc9,
+    2px -2px 10px #feec85,
+    -5px -5px 10px #ffae34,
+    5px -10px 13px #ec760c,
+    -5px -15px 15px #cd4606,
+    0 -20px 17px #973716,
+    3px -22px 20px #451b0e;}
+    100% {text-shadow: 0 0 10px #fefcc9,
+    3px -2px 7px #fefcc9,
+    -5px -5px 10px #feec85,
+    6px -11px 15px #ffae34,
+    -6px -14px 12px #ec760c,
+    0 -20px 20px #cd4606,
+    3px -22px 20px  #973716;}
+}
+
+
+.menu_name{
+    position: absolute;
+    left: 30px;
+    top: 50%;
+    transform: translate(0, -50%);
+    letter-spacing: -1px;
+}
+.menu_list_wrapper.best .menu_price{
+    top: 80%;
+    transform: translate(0, -30%);
+    font-size: 35px;
+}
+.menu_list_wrapper.second .menu_price{
+    top: 70%;
+    font-size: 28px;
+    transform: translate(0, -30%);
+}
 
 .menu_price{
     position: absolute;
@@ -155,18 +198,32 @@ div>span{
     transform: translate(0, -50%);
 }
 
-.menu_price_second{
-    display: block;
-    float: right;
-    right: 0;
-    font-size: 28px;
+.menu_list_wrapper.best img{
+    position: absolute;
+    width: 35%;
+    left: 5px;
+    top: -25%;
+    transform: translate(0, -50%);
+
+
+    animation-name: rint;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-funtion: linear;
 }
 
-.menu_price_first{
-    display: block;
-    float: right;
-    right: 0;
-    font-size: 35px;
+@keyframes rint{
+    0% { transform: rotate(0deg);}
+    100% { transform: rotate(15deg);}
+}
+
+.menu_list_wrapper.second img{
+    position: absolute;
+    width: 15%;
+    left: 10%;
+    top: 50%;
+    transform: translate(0, -50%);
 }
 
 .menu_list_nobg{

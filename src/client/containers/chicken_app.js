@@ -2,11 +2,11 @@
  * Created by Jaeeo on 2016. 10. 13..
  */
 import React from 'react';
-import ListView from '../components/listview';
+import ChickenView from '../components/chickenview';
 
 const ChickenApp = () => (
     <div>
-        <ListView />
+        <ChickenView />
     </div>
 )
 
