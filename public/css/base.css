@@ -1,0 +1,68 @@
+@import url(http://fonts.googleapis.com/earlyaccess/nanummyeongjo.css);
+@import url(http://fonts.googleapis.com/earlyaccess/nanumbrushscript.css);
+@import url(http://fonts.googleapis.com/earlyaccess/nanumpenscript.css);
+@import url(http://fonts.googleapis.com/earlyaccess/hanna.css);
+
+@import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);
+
+html{
+  margin: 0;
+  padding: 0;
+  font-family: Nanum Gothic;
+}
+body, p, h1, h2, h3, h4, h5{
+  margin: 0;
+  padding: 0;
+}
+
+footer{
+  font-family: 'Nanum Pen Script', serif;
+  position: relative;
+  background-color: #2f2f2f;
+  height: 200px;
+  color : #fff;
+  padding: 70px;
+  text-align: center;
+}
+
+footer .profile_img{
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  transform: translate(-50%, -50%);
+}
+
+footer h5{
+  font-size : 24px;
+}
+
+footer h6{
+  font-size : 20px;
+}
+
+footer .profile_link{
+  font-size : 30px;
+}
+footer .profile_link a{
+  color: #fff;
+}
+
+nav .navigation{
+  font-family : 'Nanum Pen Script', serif;
+  font-weight : 900;
+  margin : 0 20px;
+  line-height : 55px;
+  font-size : 24px;
+}
+nav .navigation a{
+  padding : 0 30px;
+  color : #000;
+}
+
+nav .navigation a img{
+  transform : translate(0, -3px);
+  padding-right : 10px;
+}

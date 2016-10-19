@@ -1,0 +1,186 @@
+html, body, #coffeeApp, #coffeeApp>div, main{
+    width : 100%;
+    height : 100%;
+}
+
+main.spring{
+    background-color: #FBBBBB;
+}
+main.summer{
+    background-color: #008DC8;
+}
+main.autumn{
+    background-color: #361800;
+}
+main.winter{
+    background-color: #C2FFF4;
+}
+
+.bg_div{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.bg_div .bg_wrapper{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.bg_div .bg_wrapper img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.grid_menu{
+    position: relative;
+    height: 80%;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+
+.grid_01{
+    display: none;
+    width: 30%;
+    height: 100%;
+    z-index: 500;
+    margin: 0px 3px 0 3px;
+    top: 50%;
+    left: 4%;
+    transform: translate(0, -50%);
+    position: absolute;
+}
+
+.grid_02{
+    width: 30%;
+    height: 100%;
+    z-index: 500;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.grid_03{
+    width: 30%;
+    height: 100%;
+    z-index: 500;
+    margin: 0px 3px 0 3px;
+    top: 50%;
+    right: 4%;
+    transform: translate(0, -50%);
+    position: absolute;
+}
+
+.grid_01_relative, .grid_02_relative, .grid_03_relative{
+    position: relative;
+    width : 100%;
+    height : 100%;
+}
+
+.grid_02_relative .menu_list:nth-child(1){
+    height: 36%;
+}
+.grid_02_relative .menu_list:nth-child(2){
+    height: 16%;
+    position: relative;
+}
+
+.menu_list{
+    width: 100%;
+    height: 8%;
+    padding: 2.5px 0;
+    /*opacity: 0.5;*/
+}
+.menu_list_wrapper{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background:  -webkit-linear-gradient(90deg,rgba(50,50,50,0.5),rgba(0,0,0,0.5),rgba(50,50,50,0.5));
+    border: 1.5px solid rgba(255,255,255,0.1);
+}
+
+div>span{
+    color: #fff;
+    font-size: 23px;
+    font-weight: bold;
+    text-shadow: 3px 3px 7px #000000;
+}
+
+.menu_name{
+    position: absolute;
+    left: 30px;
+    top: 50%;
+    transform: translate(0, -50%);
+    letter-spacing: -1px;
+}
+
+.menu_name_second_group{
+    position: absolute;
+    right:30px;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+
+.menu_name_first_group{
+    position: absolute;
+    right:30px;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+
+.menu_name_second{
+    display: block;
+    font-size: 35px;
+    color: orange;
+    right: 0;
+}
+
+.menu_name_first{
+    display: block;
+    font-size: 60px;
+    /*font-family:'BM JUA','배달의민족 주아',sans-serif;*/
+    font-family: 'BM HANNA','배달의민족 한나', sans-serif;
+    color: #fff;
+    right: 0;
+    -webkit-text-stroke: 3px #AA7942;
+}
+
+
+.menu_price{
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+
+.menu_price_second{
+    display: block;
+    float: right;
+    right: 0;
+    font-size: 28px;
+}
+
+.menu_price_first{
+    display: block;
+    float: right;
+    right: 0;
+    font-size: 35px;
+}
+
+.menu_list_nobg{
+    position: relative;
+    width: 100%;
+    height: 12%;
+    background-color: rgba(0,0,0,0);
+}
+
+.menu_list_nobg span{
+    position: absolute;
+    top: 40%;
+    width: 100%;
+    height: 60%;
+    transform: translate(0, -50%);
+    border-bottom: 2.5px solid orange;
+}

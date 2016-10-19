@@ -6,8 +6,8 @@ import React, { PropTypes } from 'react';
 const Item = ({ name, src, value, new_item, hot_item, onClick }) => (
     <div className="slot"
          onClick={ onClick }>
-        <div className="slot-header">
-            <img src={ src } className="img-chicken"/>
+        <div className="slot-header {(value > 10) ? 'fire'}">
+            <img src={ src } className="image" />
         </div>
         <div className="slot-footer">
             <div>{ name }{ value }</div>

@@ -8,20 +8,20 @@ import app from './app';
 import debug from 'debug';
 import http from 'http';
 import sockets from './controllers/socketio';
-import models from './models';
-
-
-let sequelize = new Sequelize('aspage', 'root', '', {
-  host: 'localhost',
-  dialect: 'mysql',
-
-  pool: {
-    max: 5,
-    min: 0,
-    idle: 10000
-  },
-});
-
+// import models from './models';
+//
+//
+// let sequelize = new Sequelize('aspage', 'root', '', {
+//   host: 'localhost',
+//   dialect: 'mysql',
+//
+//   pool: {
+//     max: 5,
+//     min: 0,
+//     idle: 10000
+//   },
+// });
+//
 
 
 debug('fireworks:server');

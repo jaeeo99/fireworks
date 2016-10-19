@@ -11,9 +11,10 @@ pids
 logs
 results
 build
+test
 
 node_modules
 npm-debug.log
 .idea
 
-public/js/bundle.js
+public/js/bundle.*
