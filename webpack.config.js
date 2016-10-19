@@ -5,7 +5,7 @@ var path = require('path');
 var webpack = require('webpack');
 
 module.exports = {
-    entry: './src/client/index.js',
+    entry: './src/client/entry.js',
     output: {
         path: path.join(__dirname, 'public/js'),
         filename: 'bundle.js'
@@ -28,5 +28,6 @@ module.exports = {
     },
     node: {
         fs: "empty"
-    }
+    },
+    devtool: "source-map"
 };

@@ -10,7 +10,7 @@ for(let i = 0 ; i < names.length ; i++){
     itemList.push({
         id: i,
         name: names[i],
-        src: '/img/' + i + '.png',
+        src: '/img/chicken/' + i + '.png',
         value: 0,
         new_item: false,
         hot_item: false,
@@ -42,9 +42,8 @@ const listReducer = (state = itemList, action) =>{
     }
 };
 
-
-const doorderApp = combineReducers({
+const chickenOrderApp = combineReducers({
     listReducer
 });
 
-export default doorderApp;
+export default chickenOrderApp;

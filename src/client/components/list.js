@@ -27,5 +27,5 @@ List.propTypes = {
     }).isRequired).isRequired,
     onClick: PropTypes.func.isRequired
 }
-es6
+
 export default List;

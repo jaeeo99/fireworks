@@ -1,8 +1,7 @@
-html, body, .global-wrap, main{
+html, body, #chickenApp, #chickenApp>div, main{
   width : 100%;
   height : 100%;
 }
-
 .slot{
   float : left;
   width : 25%;
@@ -41,6 +40,10 @@ html, body, .global-wrap, main{
   animation: play 1s steps(30) infinite;
 }
 
+.fire{
+    background: url('/img/fire.png') left center;
+}
+
 @keyframes play {
-  100% { background-position: -3000%; }
+    100% { background-position: -3000%; }
 }

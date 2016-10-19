@@ -2,12 +2,12 @@
  * Created by Jaeeo on 2016. 10. 13..
  */
 import React from 'react';
-import ListView from './listview';
+import ListView from '../components/listview';
 
-const App = () => (
+const ChickenApp = () => (
     <div>
         <ListView />
     </div>
 )
 
-export default App
+export default ChickenApp

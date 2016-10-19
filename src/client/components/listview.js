@@ -2,7 +2,7 @@
  * Created by Jaeeo on 2016. 10. 14..
  */
 import { connect } from 'react-redux'
-import { increment } from '../actions'
+import { increment } from '../actions/chicken'
 import List from './list'
 
 const mapStateToProps = (state) => {
