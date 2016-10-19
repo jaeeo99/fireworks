@@ -10,7 +10,7 @@ const Item = ({ name, src, value, new_item, hot_item, onClick }) => (
             <img src={ src } className="image" />
         </div>
         <div className="slot-footer">
-            <div>{ name }{ value }</div>
+            <div>{ name } { value }</div>
         </div>
     </div>
 )

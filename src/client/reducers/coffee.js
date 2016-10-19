@@ -76,3 +76,4 @@ const coffeeOrderApp = combineReducers({
 });
 
 export default coffeeOrderApp;
+export {themeReducer, itemsReducer}

@@ -5,6 +5,27 @@ import React, { PropTypes } from 'react';
 import { connect } from 'react-redux'
 import { changeTheme } from '../actions/coffee'
 
+class Counter extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {count: props.initialCount};
+    }
+    tick() {
+        this.setState({count: this.state.count + 1});
+    }
+    render() {
+        return (
+            <div onClick={this.tick.bind(this)}>
+                Clicks: {this.state.count}
+            </div>
+        );
+    }
+}
+
+Counter.propTypes = { initialCount: React.PropTypes.number };
+Counter.defaultProps = { initialCount: 0 };
+
+
 const Coffee = ({ items, theme, onClick }) => (
     <main className={theme.season} onClick={onClick}>
         <div className="bg_div">

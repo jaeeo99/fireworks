@@ -47,3 +47,5 @@ const chickenOrderApp = combineReducers({
 });
 
 export default chickenOrderApp;
+
+export {listReducer};
