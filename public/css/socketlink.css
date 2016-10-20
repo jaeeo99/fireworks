@@ -1,0 +1,9 @@
+.deviceInfoBox{
+    position:absolute;
+    top:20px;
+    left:20px;
+    background:rgba(255,255,255, 0.5);
+    font-size:25px;
+    padding: 10px;
+    z-index:999999;
+}

@@ -31,15 +31,16 @@ class SocketLink extends React.Component {
     }
 
     render() {
-        if(this.props.authState.devicename){
+        let devicename = this.props.authState.devicename;
+        if(devicename){
             return (
-                <div style={{display:'none'}}>
-                    기기 확인되었습니다.
+                <div className="deviceInfoBox">
+                    Device Name : {devicename}
                 </div>
             );
         }else{
             return (
-                <div>
+                <div className="deviceInfoBox">
                     <input id="deviceNameInput" onKeyDown={(event) => this.props.deviceNameInputOnKeyDown(event)} type="text" placeholder="디바이스 이름을 입력해주세요." />
                 </div>
             );
