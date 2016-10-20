@@ -15,6 +15,15 @@ exports = module.exports = function(io) {
             console.log(data);
         });
 
+        socket.on('all change template', function(data){
+            socket.broadcast.emit('change template', data)
+        });
+
+        socket.on('all change thema', function(){
+            console.log("change")
+            socket.broadcast.emit('change thema' )
+        });
+
         socket.on('controll special user', function(data) {
             // 클라이언트 소켓 아이디를 통해서 그 소켓을 가진 클라이언트에만 메세지를 전송
             for (var i=0; i < clients.length; i++) {

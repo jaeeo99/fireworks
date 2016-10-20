@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux'
 import {browserHistory} from 'react-router'
+import { changeTheme } from '../actions/coffee'
 import { receiveAuth, checkAuth, addDeviceName, connectSocket } from '../actions/socketlink'
 
 
@@ -8,6 +9,9 @@ class SocketLink extends React.Component {
     constructor(props){
         super(props)
         this.authState = this.props.authState;
+        this.onClickAllChangeTheme = props.onClickAllChangeTheme;
+        this.onClickAllChicken = props.onClickAllChicken;
+        this.onClickAllCoffee = props.onClickAllCoffee;
     }
     componentDidMount() {
         if(!this.authState.devicename) {
@@ -16,6 +20,21 @@ class SocketLink extends React.Component {
             //socketio 연결
             //this.props.connectSocket(this.authState.devicename, this.props.socket);
         }
+
+        const { socket } = this.props;
+        let that = this;
+        socket.on('change template', function(msg){
+            browserHistory.push('/'+msg)
+        });
+        socket.on('change thema', function(){
+            that.props.changeThema();
+        });
+        socket.on('connect', function(){
+            console.log("connect")
+        });
+        socket.on('disconnect', function(){
+            console.log("disconnect!!!")
+        });
     }
 
     componentDidUpdate(prevProps) {
@@ -23,21 +42,33 @@ class SocketLink extends React.Component {
             let devicename = this.props.authState.devicename;
             this.props.connectSocket(devicename, this.props.socket);
 
-            const { socket } = this.props;
-            socket.on('change template', msg =>
-                browserHistory.push('/'+msg)
-            );
         }
     }
 
     render() {
         let devicename = this.props.authState.devicename;
         if(devicename){
-            return (
-                <div className="deviceInfoBox">
-                    Device Name : {devicename}
-                </div>
-            );
+            if(devicename == "admin"){
+                return (
+                    <div>
+                        <div className="deviceInfoBox">
+                            Device Name : {devicename}
+                        </div>
+                        <div className="deviceAdminBox">
+                            관리자 기능 <br/>
+                            <button onClick={(event) => this.onClickAllChicken(this.props)}>전체 치킨메뉴</button><br/>
+                            <button onClick={(event) => this.onClickAllCoffee(this.props)}>전체 커피메뉴</button><br/>
+                            <button onClick={(event) => this.onClickAllChangeTheme(this.props)}>(커피)테마 변경</button>
+                        </div>
+                    </div>
+                );
+            }else{
+                return (
+                    <div className="deviceInfoBox">
+                        Device Name : {devicename}
+                    </div>
+                );
+            }
         }else{
             return (
                 <div className="deviceInfoBox">
@@ -57,7 +88,6 @@ function mapStateToProps(state) {
 }
 
 const mapDispatchToProps = (dispatch) =>{
-    let that = this;
     return{
         initAuth: () => {
             dispatch(receiveAuth());
@@ -72,6 +102,21 @@ const mapDispatchToProps = (dispatch) =>{
         connectSocket:(devicename, socket) =>{
             dispatch(connectSocket(devicename, socket));
             browserHistory.push('/coffee');
+        },
+        changeThema:() =>{
+            dispatch(changeTheme());
+        },
+        onClickAllChangeTheme: (props) => {
+            const { socket } = props;
+            socket.emit('all change thema');
+        },
+        onClickAllChicken: (props) =>{
+            const { socket } = props;
+            socket.emit('all change template', "chicken");
+        },
+        onClickAllCoffee: (props) =>{
+            const { socket } = props;
+            socket.emit('all change template', "coffee");
         }
     }
 }
