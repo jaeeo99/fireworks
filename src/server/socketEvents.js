@@ -1,21 +1,14 @@
-import socketio from 'socket.io'
-
-let sockets = {};
-
-const io = new SocketIo(server, {path: '/api/chat'})
-const socketEvents = require('./socketEvents')(io);
-
-sockets.init = function (server) {
-    // socket.io setup
-    let io = socketio.listen(server);
+exports = module.exports = function(io) {
     var clients = [];
-    io.sockets.on('connection', function (socket) {
+    io.on('connection', function(socket) {
         socket.on('login', function(data) {
             var clientInfo = new Object();
             clientInfo.uid = data.uid;
             clientInfo.id = socket.id;
             clientInfo.socket = socket;
             clients.push(clientInfo);
+
+            console.log(clients);
         });
 
         socket.on('controll special user', function(data) {
@@ -45,7 +38,5 @@ sockets.init = function (server) {
 
         });
     });
-
 }
 
-module.exports = sockets;

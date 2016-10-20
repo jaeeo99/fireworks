@@ -7,7 +7,6 @@
 import app from './app';
 import debug from 'debug';
 import http from 'http';
-import sockets from './controllers/socketio';
 // import models from './models';
 //
 //
@@ -22,6 +21,7 @@ import sockets from './controllers/socketio';
 //   },
 // });
 //
+import SocketIo from 'socket.io'
 
 
 debug('fireworks:server');
@@ -46,8 +46,10 @@ server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
 
+const io = new SocketIo(server, {path: '/api/socketio'})
+const socketEvents = require('./socketEvents')(io);
 
-sockets.init(server);
+//sockets.init(server);
 /**
  * Normalize a port into a number, string, or false.
  */
