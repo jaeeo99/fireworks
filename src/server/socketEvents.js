@@ -1,3 +1,5 @@
+var moment = require('moment');
+
 exports = module.exports = function(io) {
     var clients = [];
     io.on('connection', function(socket) {
@@ -9,6 +11,23 @@ exports = module.exports = function(io) {
             clients.push(clientInfo);
 
             //console.log(clients);
+            //console.log(io.sockets.clients());
+        });
+
+        socket.conn.on('heartbeat', function() {
+            let client = clients.find((json)=>{return json.id === this.id})
+            let now_date = moment(Date.now()).format("YYYY-MM-DD HH:mm:ss").toString()
+
+            if(client === undefined){
+                //force discinnect 현재 동작안해서 주석처리.
+                //socket.broadcast.to(this.id).emit('force disconnect');
+                //this.emit('force disconnect');
+                socket.disconnect()
+                console.log("["+now_date+"] "+this.id + " force disconnect");
+            }else{
+                console.log("["+now_date+"] "+client.uid);
+            }
+
         });
 
         socket.on('device mounted', function (data) {
@@ -20,7 +39,6 @@ exports = module.exports = function(io) {
         });
 
         socket.on('all change thema', function(){
-            console.log("change")
             socket.broadcast.emit('change thema' )
         });
 

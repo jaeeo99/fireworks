@@ -32,8 +32,12 @@ class SocketLink extends React.Component {
         socket.on('connect', function(){
             console.log("connect")
         });
+        //force disconnect 현재 동작 안함
+        socket.on('force disconnect', function(){
+            location.reload()
+        });
         socket.on('disconnect', function(){
-            console.log("disconnect!!!")
+            console.log("disconnect")
         });
     }
 
