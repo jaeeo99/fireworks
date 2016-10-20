@@ -7,7 +7,6 @@ import bodyParser from 'body-parser';
 
 import routes from './routes/index';
 import users from './routes/users';
-import socket_link from './routes/socket_link';
 
 let app = express();
 

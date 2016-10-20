@@ -8,7 +8,11 @@ exports = module.exports = function(io) {
             clientInfo.socket = socket;
             clients.push(clientInfo);
 
-            console.log(clients);
+            //console.log(clients);
+        });
+
+        socket.on('device mounted', function (data) {
+            console.log(data);
         });
 
         socket.on('controll special user', function(data) {

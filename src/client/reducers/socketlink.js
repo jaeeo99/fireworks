@@ -44,3 +44,4 @@ const socketLinkReducer = combineReducers({
 });
 
 export default socketLinkReducer;
+export {authReducer};

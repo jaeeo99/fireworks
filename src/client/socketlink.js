@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import SocketLinkApp from './container/socketlink_app';
+import SocketLinkApp from './containers/socketlink_app';
 import socketLinkReducer from './reducers/socketlink';
 
 const socketLinkStore = createStore(socketLinkReducer);

@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux'
-
+import {browserHistory} from 'react-router'
 import { receiveAuth, checkAuth, addDeviceName, connectSocket } from '../actions/socketlink'
 
 
@@ -19,17 +19,21 @@ class SocketLink extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
-        console.log(this.props.authState)
         if(this.props.authState.devicename && !this.props.authState.socketID){
             let devicename = this.props.authState.devicename;
             this.props.connectSocket(devicename, this.props.socket);
+
+            const { socket } = this.props;
+            socket.on('change template', msg =>
+                browserHistory.push('/'+msg)
+            );
         }
     }
 
     render() {
         if(this.props.authState.devicename){
             return (
-                <div>
+                <div style={{display:'none'}}>
                     기기 확인되었습니다.
                 </div>
             );
@@ -65,8 +69,8 @@ const mapDispatchToProps = (dispatch) =>{
             }
         },
         connectSocket:(devicename, socket) =>{
-            console.log("?!")
             dispatch(connectSocket(devicename, socket));
+            browserHistory.push('/coffee');
         }
     }
 }
