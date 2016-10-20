@@ -1,8 +1,3 @@
-html, body, #app, #app>div, main{
-    width : 100%;
-    height : 100%;
-}
-
 .bg_div{
     position: absolute;
     width: 100%;
@@ -84,20 +79,27 @@ html, body, #app, #app>div, main{
     height : 100%;
 }
 
-.grid_02_relative .menu_list:nth-child(1){
+.grid_02_relative .menu_list.best{
     height: 36%;
 }
-.grid_02_relative .menu_list:nth-child(2){
+.grid_02_relative .menu_list.second{
     height: 16%;
     position: relative;
 }
 
 .menu_list{
+    position: relative;
     width: 100%;
     height: 8%;
     padding: 2.5px 0;
-    /*opacity: 0.5;*/
 }
+.transition_wrapper{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 2.5px 0;
+}
+
 .menu_list_wrapper{
     position: relative;
     width: 100%;
@@ -127,30 +129,29 @@ div>span{
     transform: translate(0, -50%);
 }
 
-.menu_list_wrapper.best .menu_name{
+.menu_list.best .menu_name{
     font-size: 60px;
-    /*font-family:'BM JUA','배달의민족 주아',sans-serif;*/
-    font-family: 'BM HANNA','배달의민족 한나', sans-serif;
+    font-family: 'BM HANNA';
     color: #fff;
-    left: auto;
-    right: 30px;
+    word-break:keep-all;
+    left: 25%;
     max-width : 55%;
     top: 30%;
-    transform: translate(0, -30%);
+    transform: translate(0, -20%);
+    font-weight: 900;
     -webkit-text-stroke: 1.5px #AA7942;
-    line-height: 130%;
+    line-height: 100%;
 }
-.menu_list_wrapper.second .menu_name{
-    font-size: 35px;
-    color: orange;
-    left: auto;
-    right: 30px;
+.menu_list.second .menu_name{
+    font-size: 33px;
+    color: #fece89;
+    left: 25%;
     max-width : 70%;
     top: 30%;
     transform: translate(0, -30%);
 }
 
-.menu_list_wrapper.third .menu_name{
+.menu_list.third .menu_name{
     animation: fireburn .65s ease-in-out infinite alternate;
 }
 
@@ -180,13 +181,15 @@ div>span{
     transform: translate(0, -50%);
     letter-spacing: -1px;
 }
-.menu_list_wrapper.best .menu_price{
-    top: 80%;
+.menu_list.best .menu_price{
+    top: 75%;
+    left: 25%;
     transform: translate(0, -30%);
     font-size: 35px;
 }
-.menu_list_wrapper.second .menu_price{
+.menu_list.second .menu_price{
     top: 70%;
+    left: 25%;
     font-size: 28px;
     transform: translate(0, -30%);
 }
@@ -198,11 +201,11 @@ div>span{
     transform: translate(0, -50%);
 }
 
-.menu_list_wrapper.best img{
+.menu_list.best .menu_img{
     position: absolute;
-    width: 35%;
-    left: 5px;
-    top: -25%;
+    width: 40%;
+    left: -5%;
+    top: 0;
     transform: translate(0, -50%);
 
 
@@ -218,11 +221,49 @@ div>span{
     100% { transform: rotate(15deg);}
 }
 
-.menu_list_wrapper.second img{
+.menu_list.second .menu_img{
     position: absolute;
     width: 15%;
-    left: 10%;
+    left: 5%;
     top: 50%;
+    transform: translate(0, -50%);
+}
+.menu_rank{
+    float: right;
+    position: relative;
+    height: 100%;
+    width: 17%;
+    right: 5%;
+}
+
+.unrank{
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    padding-top: 100%;
+    background-color: #000000;
+    border: 1px solid #ffffff;
+    border-radius: 100%;
+    transform: translate(0, -50%);
+}
+
+.menu_list.best .menu_ordered{
+    top: 55%;
+}
+
+.menu_ordered{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 35px;
+    color: #ffffff;
+}
+
+.menu_rank img{
+    position: absolute;
+    top: 50%;
+    width: 100%;
     transform: translate(0, -50%);
 }
 

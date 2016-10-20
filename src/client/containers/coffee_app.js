@@ -5,9 +5,7 @@ import React from 'react';
 import CoffeeView from '../components/coffeeview';
 
 const CoffeeApp = () => (
-    <div>
-        <CoffeeView />
-    </div>
+    <CoffeeView />
 )
 
 export default CoffeeApp

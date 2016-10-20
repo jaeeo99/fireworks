@@ -12,9 +12,11 @@ import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
 import { itemsReducer, themeReducer } from './reducers/coffee'
 import { listReducer } from './reducers/chicken'
 import { authReducer } from './reducers/socketlink';
+import { voteReducer } from './reducers/vote'
 import CoffeeApp from './containers/coffee_app'
 import ChickenApp from './containers/chicken_app'
 import SocketLinkApp from './containers/socketlink_app'
+import VoteApp from './containers/vote_app'
 
 const element = document.getElementById('app');
 
@@ -24,6 +26,7 @@ const store = createStore(
         themeReducer,
         listReducer,
         authReducer,
+        voteReducer,
         routing: routerReducer
     })
 )
@@ -32,6 +35,7 @@ const routes = (
     <Route path="/" component={SocketLinkApp}>
         <Route path="/chicken" component={ChickenApp} />
         <Route path="/coffee" component={CoffeeApp} />
+        <Route path="/vote" component={VoteApp} />
     </Route>
 );
 

@@ -5,9 +5,7 @@ import React from 'react';
 import ChickenView from '../components/chickenview';
 
 const ChickenApp = () => (
-    <div>
-        <ChickenView />
-    </div>
+    <ChickenView />
 )
 
 export default ChickenApp

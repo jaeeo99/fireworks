@@ -4,21 +4,23 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux'
 import { changeTheme } from '../actions/coffee'
+import { increment } from '../actions/chicken'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 class Coffee extends React.Component {
     constructor (props) {
         super(props);
         this.onClick = props.onClick;
+        this.onItemClick = props.onItemClick;
     }
     render () {
         return (
-            <main onClick={()=>console.log(this.props)}>
+            <main>
                 <div className="bg_div">
                     <div className="bg_wrapper">
                         <ReactCSSTransitionGroup transitionName="fade"
-                                                 transitionEnterTimeout={300}
-                                                 transitionLeaveTimeout={300}>
+                                                 transitionEnterTimeout={500}
+                                                 transitionLeaveTimeout={500}>
                             <div key={this.props.theme.season} className={this.props.theme.season + " bg"}>
                                 <img src={this.props.theme.resources.src}/>
                             </div>
@@ -33,13 +35,33 @@ class Coffee extends React.Component {
                     <div className="grid_02">
                         <div className="grid_02_relative">
                             {this.props.items.section2.map((item, index) =>
-                                <div key={index} className="menu_list">
-                                    <div className={'menu_list_wrapper' + (index == 0 ? ' best': '') + (index == 1 ? ' second': '') + (index == 2 ? ' third': '')}>
-                                        {(index == 0) ? <img src="/img/coffee/darkchocola.png"/>: null}
-                                        {(index == 1) ? <img src="/img/coffee/greentea.png"/>: null}
-                                        <span className="menu_name">{item}</span>
-                                        <span className="menu_price">R 4,300 / L 5,500</span>
-                                    </div>
+                                <div key={item.id} className={'menu_list' + (index == 0 ? ' best': ' second')}  onClick={this.onItemClick.bind(null, item.id)}>
+                                    <ReactCSSTransitionGroup transitionName="fade"
+                                                             transitionEnterTimeout={500}
+                                                             transitionLeaveTimeout={500}>
+                                        <div key={item.id} className="transition_wrapper">
+                                            <div className="menu_list_wrapper">
+                                                <img className="menu_img" src={item.src}/>
+                                                <span className="menu_name">{item.name}</span>
+                                                <span className="menu_price">R 4,300 / L 5,500</span>
+                                                <div className="menu_rank">
+                                                    {(() => {
+                                                        switch (index) {
+                                                            case 0:
+                                                                return <img src="/img/coffee/first.png"/>
+                                                            case 1:
+                                                                return <img src="/img/coffee/second.png"/>
+                                                            case 2:
+                                                                return <img src="/img/coffee/third.png"/>
+                                                            default:
+                                                                return <div className="unrank"></div>
+                                                        }
+                                                    })()}
+                                                    <span className="menu_ordered">{item.value}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </ReactCSSTransitionGroup>
                                 </div>
                             )}
                         </div>
@@ -68,7 +90,12 @@ class Coffee extends React.Component {
 Coffee.propTypes = {
     items: PropTypes.shape({
         section1: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
-        section2: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+        section2: PropTypes.arrayOf(PropTypes.shape({
+            id: PropTypes.number.isRequired,
+            src: PropTypes.string.isRequired,
+            name: PropTypes.string.isRequired,
+            value: PropTypes.number.isRequired
+        }).isRequired).isRequired,
         section3: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired
     }),
     theme: PropTypes.shape({
@@ -90,8 +117,11 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onClick: (id) => {
+        onClick: () => {
             dispatch(changeTheme())
+        },
+        onItemClick: (id) => {
+            dispatch(increment(id))
         }
     }
 }

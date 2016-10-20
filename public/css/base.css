@@ -2,7 +2,6 @@
 @import url(http://fonts.googleapis.com/earlyaccess/nanumbrushscript.css);
 @import url(http://fonts.googleapis.com/earlyaccess/nanumpenscript.css);
 @import url(http://fonts.googleapis.com/earlyaccess/hanna.css);
-
 @import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);
 
 html{
@@ -17,17 +16,17 @@ body, p, h1, h2, h3, h4, h5{
 
 .fade-enter {
   overflow: hidden;
-  opacity: 0.5;
+  opacity: 0;
 }
 .fade-enter.fade-enter-active {
   opacity: 1;
-  transition: opacity .3s ease-in .3s;
+  transition: opacity .5s ease-in .5s;
 }
 
 .fade-leave {
   opacity: 1;
 }
 .fade-leave.fade-leave-active {
-  opacity: 0.5;
-  transition: opacity .3s ease-in;
+  opacity: 0;
+  transition: opacity .5s ease-in;
 }

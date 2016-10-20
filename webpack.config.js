@@ -3,9 +3,13 @@
  */
 var path = require('path');
 var webpack = require('webpack');
+var UnminifiedWebpackPlugin = require('unminified-webpack-plugin');
 
 module.exports = {
-    entry: './src/client/app.js',
+    entry: {
+        "bundle": "./src/client/app.js",
+        "bundle.min": "./src/client/app.js",
+    },
     output: {
         path: path.join(__dirname, 'public/js'),
         filename: 'bundle.js'
@@ -29,5 +33,12 @@ module.exports = {
     node: {
         fs: "empty"
     },
-    devtool: "source-map"
+    // devtool: "source-map",
+    // plugins: [
+    //     new webpack.optimize.UglifyJsPlugin({
+    //         include: /\.min\.js$/,
+    //         minimize: true
+    //     }),
+    //     new UnminifiedWebpackPlugin()
+    // ]
 };
