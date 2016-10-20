@@ -1,4 +1,4 @@
-html, body, #chickenApp, #chickenApp>div, main{
+html, body, #app, #app>div, main{
   width : 100%;
   height : 100%;
 }
@@ -41,7 +41,7 @@ html, body, #chickenApp, #chickenApp>div, main{
 }
 
 .fire{
-    background: url('/img/fire.png') left center;
+    background: url('/img/chicken/fire.png') left center;
 }
 
 @keyframes play {
