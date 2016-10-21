@@ -55,8 +55,8 @@ const seasons = {
 }
 
 const theme = {
-    season: 'spring',
-    resources: seasons.spring
+    season: 'autumn',
+    resources: seasons.autumn
 }
 
 const themeReducer = (state = theme, action) =>{

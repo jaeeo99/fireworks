@@ -20,10 +20,19 @@ class Vote extends React.Component {
                 {this.props.votes.map((item, index) =>
                     <div key={item.id} className={"section vote"+index}
                          onClick={ this.onClick.bind(null, item.id) }>
-                        <div>{item.title} {item.value}</div>
-                        {_.range(item.value).map(idx =>
-                            <div key={idx} className="voted"></div>
-                        )}
+                        <div className="vote_header">
+                            <div className="vote_title">
+                                <span>{item.title}</span>
+                            </div>
+                            <div className="vote_value">
+                                <span>{item.value}</span>
+                            </div>
+                        </div>
+                        <div className="vote_content">
+                            {_.range(item.value).map(idx =>
+                                <div key={idx} className="voted"></div>
+                            )}
+                        </div>
                     </div>
                 )}
             </main>

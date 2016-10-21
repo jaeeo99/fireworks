@@ -37,13 +37,13 @@ html, body, #app, #app>div, main{
 
 .fire{
   background-size: 3000% 100% !important;
-  animation: play 1s steps(30) infinite;
+  animation: play 1.5s steps(30) infinite;
 }
 
 .fire{
-    background: url('/img/chicken/fire.png') left center;
+  background: url('/img/chicken/fire.png') left center;
 }
 
 @keyframes play {
-    100% { background-position: -3000%; }
+  100% { background-position: -3000%; }
 }

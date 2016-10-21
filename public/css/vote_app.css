@@ -9,7 +9,6 @@ html, body, #app, #app>div, main{
     height: 100%;
 }
 
-
 .voted{
     float: left;
     margin : 5px;
@@ -21,14 +20,39 @@ html, body, #app, #app>div, main{
 .vote0{
     background-color: #000000;
 }
-
 .vote1{
     background-color: #ffffff;
 }
 
+.vote_header{
+    height: 30%;
+}
+
+.vote_header>div{
+    position: relative;
+    height: 50%;
+}
+
+.vote_header div span{
+    position: absolute;
+    color: #fff;
+    font-size: 23px;
+    font-weight: bold;
+    text-shadow: 3px 3px 7px #000000;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.vote0 .vote_title{
+    text-shadow: 3px 3px 7px #ffffff;
+}
+
 .vote0 .voted{
     background-color: #ffffff;
+    border: 1px solid #000000;
 }
 .vote1 .voted{
     background-color: #000000;
+    border: 1px solid #ffffff;
 }

@@ -36,32 +36,34 @@ class Coffee extends React.Component {
                         <div className="grid_02_relative">
                             {this.props.items.section2.map((item, index) =>
                                 <div key={item.id} className={'menu_list' + (index == 0 ? ' best': ' second')}  onClick={this.onItemClick.bind(null, item.id)}>
-                                    <ReactCSSTransitionGroup transitionName="fade"
-                                                             transitionEnterTimeout={500}
-                                                             transitionLeaveTimeout={500}>
-                                        <div key={item.id} className="transition_wrapper">
-                                            <div className="menu_list_wrapper">
-                                                <img className="menu_img" src={item.src}/>
-                                                <span className="menu_name">{item.name}</span>
-                                                <span className="menu_price">R 4,300 / L 5,500</span>
-                                                <div className="menu_rank">
-                                                    {(() => {
-                                                        switch (index) {
-                                                            case 0:
-                                                                return <img src="/img/coffee/first.png"/>
-                                                            case 1:
-                                                                return <img src="/img/coffee/second.png"/>
-                                                            case 2:
-                                                                return <img src="/img/coffee/third.png"/>
-                                                            default:
-                                                                return <div className="unrank"></div>
-                                                        }
-                                                    })()}
-                                                    <span className="menu_ordered">{item.value}</span>
-                                                </div>
+                                    <div key={index} className="transition_wrapper">
+                                        <div className="menu_list_wrapper">
+                                            {(index == 0 && item.value >= 10 ? <div className="fire"></div>: null)}
+                                            <img className="menu_img" src={item.src}/>
+                                            <span className="menu_name">{item.name}</span>
+                                            <span className="menu_price">R 4,300 / L 5,500</span>
+                                            <div className="menu_rank">
+                                                {(() => {
+                                                    switch (index) {
+                                                        case 0:
+                                                            return <img src="/img/coffee/first.png"/>
+                                                        case 1:
+                                                            return <img src="/img/coffee/second.png"/>
+                                                        case 2:
+                                                            return <img src="/img/coffee/third.png"/>
+                                                        default:
+                                                            return <div className="unrank"></div>
+                                                    }
+                                                })()}
+                                                <span className="menu_ordered">{item.value}</span>
+                                                <ReactCSSTransitionGroup transitionName="disappear"
+                                                                         transitionEnterTimeout={2000}
+                                                                         transitionLeaveTimeout={2000}>
+                                                    <div key={item.value} className="heart"></div>
+                                                </ReactCSSTransitionGroup>
                                             </div>
                                         </div>
-                                    </ReactCSSTransitionGroup>
+                                    </div>
                                 </div>
                             )}
                         </div>
