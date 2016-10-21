@@ -26,6 +26,7 @@ class Coffee extends React.Component {
                             </div>
                         </ReactCSSTransitionGroup>
                         <img src="/img/coffee/opticalFlare.png"/>
+                        <div className="smoke"/>
                         <img src="/img/coffee/coffeeDessert.png"/>
                     </div>
                 </div>

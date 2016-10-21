@@ -13,10 +13,22 @@ html, body, #app, #app>div, main{
 }
 
 .slot-header{
+  position: relative;
   border : 1px solid #fff;
+  overflow: hidden;
+  max-height: calc(100% - 30px);
+}
+
+.slot-header img{
+  max-width: 100%;
 }
 
 .slot-footer{
+  position: relative;
+  min-height: 30px;
+}
+
+.slot-footer div{
   font-family: 'Jeju Gothic', serif;
   font-size : 22px;
   padding : 20px;
@@ -46,4 +58,22 @@ html, body, #app, #app>div, main{
 
 @keyframes play {
   100% { background-position: -3000%; }
+}
+
+@media (max-width: 1400px){
+  .slot-footer div{
+    padding : 15px;
+  }
+}
+
+@media (max-width: 1200px){
+  .slot-footer div{
+    padding : 13px;
+  }
+}
+
+@media (max-width: 1000px){
+  .slot-footer div{
+    padding : 10px;
+  }
 }

@@ -303,9 +303,6 @@ div>span{
     transform: translate(50%, -50%);
     background-size: 6000% 100% !important;
     animation: play 2s steps(60) infinite;
-}
-
-.heart{
     background: url('/img/coffee/heart.png') left center;
 }
 
@@ -315,4 +312,94 @@ div>span{
 
 .heart.disappear-enter{
     display: block;
+}
+
+.smoke{
+    position: absolute;
+    left: 5%;
+    top: 0;
+    width: 40%;
+    height: 35%;
+    background-size: 3100% 100% !important;
+    animation: play_smoke 1s steps(31) infinite;
+    background: url('/img/coffee/smoke.png') left center;
+    /*filter:invert();*/
+    filter:blur(35px)invert(100%)opacity(40%);
+}
+
+@keyframes play_smoke {
+    100% { background-position: -3100%; }
+}
+
+@media (max-width: 1400px){
+    div>span {
+        font-size: 18px;
+    }
+
+    .menu_list.best .menu_name {
+        font-size: 50px;
+    }
+
+    .menu_list.second .menu_name {
+        font-size: 28px;
+    }
+
+    .menu_list.best .menu_price{
+        font-size: 30px;
+    }
+
+    .menu_list.second .menu_price{
+        font-size: 23px;
+    }
+
+    .menu_ordered{
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 1200px){
+    .menu_list.best .menu_name {
+        font-size: 40px;
+    }
+
+    .menu_list.second .menu_name {
+        font-size: 23px;
+    }
+
+    .menu_list.best .menu_price{
+        font-size: 25px;
+    }
+
+    .menu_list.second .menu_price{
+        font-size: 20px;
+    }
+
+    .menu_ordered{
+        font-size: 25px;
+    }
+}
+
+@media (max-width: 1000px){
+    div>span {
+        font-size: 13px;
+    }
+    .menu_list.best .menu_name {
+        font-size: 30px;
+    }
+
+    .menu_list.second .menu_name {
+        font-size: 18px;
+    }
+
+    .menu_list.best .menu_price{
+        font-size: 20px;
+    }
+
+    .menu_list.second .menu_price{
+        font-size: 15px;
+    }
+
+    .menu_ordered{
+        font-size: 20px;
+    }
 }
