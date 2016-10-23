@@ -356,8 +356,6 @@ div>span{
 canvas{
     position: absolute;
     display: none;
-    width: 1920px;
-    height: 1032px;
 }
 canvas.autumn{
     display: block;
