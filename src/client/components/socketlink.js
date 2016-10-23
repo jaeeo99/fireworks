@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import { connect } from 'react-redux'
 import {browserHistory} from 'react-router'
 import { changeTheme } from '../actions/coffee'
+import { increment } from '../actions/chicken'
 import { receiveAuth, checkAuth, addDeviceName, connectSocket } from '../actions/socketlink'
 
 
@@ -14,6 +15,7 @@ class SocketLink extends React.Component {
         this.onClickAllChicken = props.onClickAllChicken;
         this.onClickAllCoffee = props.onClickAllCoffee;
         this.onCLickAllDivideVideo = props.onCLickAllDivideVideo;
+        this.onCLickAllOrderMenu = props.onCLickAllOrderMenu;
 
     }
     componentDidMount() {
@@ -34,6 +36,9 @@ class SocketLink extends React.Component {
         });
         socket.on('connect', function(){
             console.log("connect")
+        });
+        socket.on('change menu count', function(data){
+            that.props.increment(data);
         });
         //force disconnect 현재 동작 안함
         socket.on('force disconnect', function(){
@@ -61,13 +66,19 @@ class SocketLink extends React.Component {
                             Device Name : {devicename}
                         </div>
                         <div className="deviceAdminBox">
-                            관리자 기능 <br/>
-                            <button onClick={(event) => this.onClickAllChicken(this.props)}>전체 치킨메뉴</button><br/>
+                            템플릿 변경 <br/>
+                            <button onClick={(event) => this.onClickAllChicken(this.props)}>전체 치킨메뉴</button>
                             <button onClick={(event) => this.onClickAllCoffee(this.props)}>전체 커피메뉴</button><br/>
-                            <button onClick={(event) => this.onClickAllChangeTheme(this.props)}>(커피)테마 변경</button><br/>
-                            <button onClick={(event) => this.onClickAllVideoView(this.props)}>전체 커피베이영상</button><br/>
+                            <button onClick={(event) => this.onClickAllVideoView(this.props)}>전체 커피영상</button>
                             <button onClick={(event) => this.onCLickAllDivideVideo(this.props)}>전체 분할영상</button><br/>
+                            <button onClick={(event) => this.onClickAllChangeTheme(this.props)}>커피 테마변경</button><br/><br/>
 
+                            커피매뉴 주문 <br/>
+                            <button onClick={(event) => this.onCLickAllOrderMenu(this.props,0)}>다크쇼콜라</button>
+                            <button onClick={(event) => this.onCLickAllOrderMenu(this.props,1)}>유자칩</button>
+                            <button onClick={(event) => this.onCLickAllOrderMenu(this.props,2)}>레몬티</button><br/>
+                            <button onClick={(event) => this.onCLickAllOrderMenu(this.props,3)}>자바칩</button>
+                            <button onClick={(event) => this.onCLickAllOrderMenu(this.props,4)}>스무벨라</button>
                         </div>
                     </div>
                 );
@@ -115,6 +126,9 @@ const mapDispatchToProps = (dispatch) =>{
         changeTheme:() =>{
             dispatch(changeTheme());
         },
+        increment:(index)=>{
+            dispatch(increment(index));
+        },
         onClickAllChangeTheme: (props) => {
             const { socket } = props;
             socket.emit('all change thema');
@@ -134,7 +148,12 @@ const mapDispatchToProps = (dispatch) =>{
         onCLickAllDivideVideo: (props) =>{
             const { socket } =props;
             socket.emit('all change template', "coffee/division")
+        },
+        onCLickAllOrderMenu:(props,index) => {
+            const { socket } =props;
+            socket.emit('all order menu', index)
         }
+
     }
 }
 

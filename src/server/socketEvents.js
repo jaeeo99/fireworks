@@ -46,9 +46,8 @@ exports = module.exports = function(io) {
             socket.broadcast.emit('change thema' )
         });
 
-        socket.on('vote coffee item', function(data){
-            console.log(data)
-            socket.broadcast.emit('vote coffee item', data )
+        socket.on('all order menu', function(data){
+            socket.broadcast.emit('change menu count', data )
         })
 
         socket.on('controll special user', function(data) {
