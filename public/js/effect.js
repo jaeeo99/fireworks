@@ -3,7 +3,7 @@
  */
 var renderer, scene, camera,
     ww     = window.innerWidth,
-    wh     = window.innerHeight
+    wh     = window.innerHeight,
     amount = 100,
     mouse  = {x:0,y:0};
 
