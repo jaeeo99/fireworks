@@ -23,11 +23,14 @@ class Coffee extends React.Component {
                                                  transitionLeaveTimeout={500}>
                             <div key={this.props.theme.season} className={this.props.theme.season + " bg"}>
                                 <img src={this.props.theme.resources.src}/>
+                                <div className="smoke"/>
                             </div>
                         </ReactCSSTransitionGroup>
-                        <img src="/img/coffee/opticalFlare.png"/>
-                        <div className="smoke"/>
+                        <img className="flare_bg" src="/img/coffee/opticalFlare_bg.png"/>
                         <img src="/img/coffee/coffeeDessert.png"/>
+                        <img className="flare_light" src="/img/coffee/opticalFlare_light.png"/>
+                        <canvas id="scene0" className={this.props.theme.season}/>
+                        <canvas id="scene1" className={this.props.theme.season}/>
                     </div>
                 </div>
                 <div className="grid_menu">

@@ -314,21 +314,55 @@ div>span{
     display: block;
 }
 
-.smoke{
+.winter .smoke{
     position: absolute;
     left: 5%;
-    top: 0;
+    top: -20%;
     width: 40%;
-    height: 35%;
-    background-size: 3100% 100% !important;
-    animation: play_smoke 1s steps(31) infinite;
+    height: 65%;
+    background-size: 3000% 100% !important;
+    animation: play_smoke 3s steps(30) infinite;
     background: url('/img/coffee/smoke.png') left center;
-    /*filter:invert();*/
-    filter:blur(35px)invert(100%)opacity(40%);
+    opacity: .7;
+}
+.flare_light{
+    opacity: .7;
+    transform-origin: top left;
+    animation-name: flare_rint;
+    animation-duration: 30s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-funtion: linear;
+}
+.flare_bg{
+    animation-name: flare_opacity;
+    animation-duration: 30s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-funtion: linear;
+}
+
+@keyframes flare_rint{
+    0% { transform: rotate(-15deg);}
+    100% { transform: rotate(15deg);}
+}
+@keyframes flare_opacity{
+    0% { opacity:.7;}
+    50% { opacity:1;}
+    100% {opacity:.7;}
+}
+
+
+canvas{
+    position: absolute;
+    display: none;
+}
+canvas.autumn{
+    display: block;
 }
 
 @keyframes play_smoke {
-    100% { background-position: -3100%; }
+    100% { background-position: -3000%; }
 }
 
 @media (max-width: 1400px){
