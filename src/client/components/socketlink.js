@@ -10,8 +10,11 @@ class SocketLink extends React.Component {
         super(props)
         this.authState = this.props.authState;
         this.onClickAllChangeTheme = props.onClickAllChangeTheme;
+        this.onClickAllVideoView = props.onClickAllVideoView;
         this.onClickAllChicken = props.onClickAllChicken;
         this.onClickAllCoffee = props.onClickAllCoffee;
+        this.onCLickAllDivideVideo = props.onCLickAllDivideVideo;
+
     }
     componentDidMount() {
         if(!this.authState.devicename) {
@@ -27,7 +30,7 @@ class SocketLink extends React.Component {
             browserHistory.push('/'+msg)
         });
         socket.on('change thema', function(){
-            that.props.changeThema();
+            that.props.changeTheme();
         });
         socket.on('connect', function(){
             console.log("connect")
@@ -45,7 +48,6 @@ class SocketLink extends React.Component {
         if(this.props.authState.devicename && !this.props.authState.socketID){
             let devicename = this.props.authState.devicename;
             this.props.connectSocket(devicename, this.props.socket);
-
         }
     }
 
@@ -62,7 +64,10 @@ class SocketLink extends React.Component {
                             관리자 기능 <br/>
                             <button onClick={(event) => this.onClickAllChicken(this.props)}>전체 치킨메뉴</button><br/>
                             <button onClick={(event) => this.onClickAllCoffee(this.props)}>전체 커피메뉴</button><br/>
-                            <button onClick={(event) => this.onClickAllChangeTheme(this.props)}>(커피)테마 변경</button>
+                            <button onClick={(event) => this.onClickAllChangeTheme(this.props)}>(커피)테마 변경</button><br/>
+                            <button onClick={(event) => this.onClickAllVideoView(this.props)}>전체 커피베이영상</button><br/>
+                            <button onClick={(event) => this.onCLickAllDivideVideo(this.props)}>전체 분할영상</button><br/>
+
                         </div>
                     </div>
                 );
@@ -107,12 +112,16 @@ const mapDispatchToProps = (dispatch) =>{
             dispatch(connectSocket(devicename, socket));
             browserHistory.push('/coffee');
         },
-        changeThema:() =>{
+        changeTheme:() =>{
             dispatch(changeTheme());
         },
         onClickAllChangeTheme: (props) => {
             const { socket } = props;
             socket.emit('all change thema');
+        },
+        onClickAllVideoView:( props ) =>{
+            const { socket } = props;
+            socket.emit('all change template', "coffee/video")
         },
         onClickAllChicken: (props) =>{
             const { socket } = props;
@@ -121,6 +130,10 @@ const mapDispatchToProps = (dispatch) =>{
         onClickAllCoffee: (props) =>{
             const { socket } = props;
             socket.emit('all change template', "coffee");
+        },
+        onCLickAllDivideVideo: (props) =>{
+            const { socket } =props;
+            socket.emit('all change template', "coffee/division")
         }
     }
 }

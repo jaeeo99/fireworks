@@ -2,12 +2,17 @@ import cookie from 'react-cookie';
 import * as types from '../../constants/action_type';
 
 export const connectSocket = (devicename, socket) => {
-    console.log(devicename);
-    let result = socket.emit('login', { uid: devicename });
+    socket.emit('login', { uid: devicename });
     return {
         type: types.CONNECT_SOCKET,
         devicename: devicename,
         connect: true
+    };
+}
+
+export const voteCoffeeItem = () => {
+    return {
+        type: 'CHANGE_THEME'
     };
 }
 

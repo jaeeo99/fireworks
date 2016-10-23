@@ -17,3 +17,47 @@
     padding: 10px;
     z-index:999999;
 }
+
+.fullscreen{
+    width: 100%;
+    height: 100%;
+    background-color:black;
+}
+.fullscreen1920{
+    width: 1920px;
+    height: 1080px;
+    background-color:black;
+}
+
+.division_background{
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url('/img/iu/iu_background_full.jpg');
+}
+
+.division_video{
+    width: 1022px;
+    height: 575px;
+    top: 207px;
+    z-index: 500;
+    background-color: rgba(255,32,32,0.5);
+    margin: 0px 3px 0 3px;
+    right: 87px;
+    position: absolute;
+}
+
+.division_sojuanimation{
+    width: 148.4px;
+    height: 281.6px;
+    z-index: 500;
+    margin: 0px 3px 0 3px;
+    bottom: 80px;
+    right: 87px;
+    position: absolute;
+
+    animation-name: rint;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-funtion: linear;
+}

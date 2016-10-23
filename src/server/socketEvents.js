@@ -2,6 +2,11 @@ var moment = require('moment');
 
 exports = module.exports = function(io) {
     var clients = [];
+    var coffeeItems = [
+        {id:0, count:0},{id:1, count:0},
+        {id:2, count:0},{id:3, count:0},
+        {id:4, count:0}
+    ];
     io.on('connection', function(socket) {
         socket.on('login', function(data) {
             var clientInfo = new Object();
@@ -10,8 +15,7 @@ exports = module.exports = function(io) {
             clientInfo.socket = socket;
             clients.push(clientInfo);
 
-            //console.log(clients);
-            //console.log(io.sockets.clients());
+            socket.join('device');
         });
 
         socket.conn.on('heartbeat', function() {
@@ -42,6 +46,11 @@ exports = module.exports = function(io) {
             socket.broadcast.emit('change thema' )
         });
 
+        socket.on('vote coffee item', function(data){
+            console.log(data)
+            socket.broadcast.emit('vote coffee item', data )
+        })
+
         socket.on('controll special user', function(data) {
             // 클라이언트 소켓 아이디를 통해서 그 소켓을 가진 클라이언트에만 메세지를 전송
             for (var i=0; i < clients.length; i++) {
@@ -50,7 +59,6 @@ exports = module.exports = function(io) {
                 if (client.uid == data.uid) {
                     console.log(data.msg);
                     client.socket.emit('message', data.msg);
-                    //io.sockets.socket(client.id).emit('message', data.msg);
                     break;
                 }
             }
