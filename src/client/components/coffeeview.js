@@ -13,6 +13,11 @@ class Coffee extends React.Component {
         this.onClick = props.onClick;
         this.onItemClick = props.onItemClick;
     }
+    componentWillMount() {
+        const script = document.createElement("script");
+        script.src = "/js/effect.js";
+        document.body.appendChild(script);
+    }
     render () {
         return (
             <main>
@@ -29,8 +34,8 @@ class Coffee extends React.Component {
                         <img className="flare_bg" src="/img/coffee/opticalFlare_bg.png"/>
                         <img src="/img/coffee/coffeeDessert.png"/>
                         <img className="flare_light" src="/img/coffee/opticalFlare_light.png"/>
-                        <canvas id="scene0" className={this.props.theme.season}/>
-                        <canvas id="scene1" className={this.props.theme.season}/>
+                        <canvas id="scene0" className={this.props.theme.season} style={{ width: '1920px', height: '1032px'}}/>
+                        <canvas id="scene1" className={this.props.theme.season} style={{ width: '1920px', height: '1032px'}}/>
                     </div>
                 </div>
                 <div className="grid_menu">
